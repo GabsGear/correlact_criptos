@@ -17,7 +17,7 @@ def createDataset():
             symbol=pair, interval=Client.KLINE_INTERVAL_1MINUTE)
         for candle in candles:
             close.append(candle[4])
-            df[pair] = np.array(close).astype(np.float)
+        df[pair] = np.array(close).astype(np.float)
 
     return df
 
