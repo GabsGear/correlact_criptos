@@ -21,5 +21,3 @@ def createDataset():
 
     return df
 
-df = createDataset()
-df.to_csv('dataset')
