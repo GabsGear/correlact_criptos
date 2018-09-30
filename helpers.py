@@ -5,13 +5,14 @@ from scipy.stats import linregress
 from scipy.stats import pearsonr
 import seaborn as sns
 
+#BTCUSDT	XLMBTC	IOTABTC	ADABTC	BNBBTC	EOSBTC	XRPBTC	ETHBTC	LTCBTC	ETCBTC	NEOBTC
 def printAll(df):
     fig = plt.figure(figsize=(15, 15))
     ax3 = fig.add_subplot(331)
     ax3.set_xlabel('Amostra')
     ax3.set_ylabel('valor')
-    ax3.set_title('XLMBTC')
-    plt.plot(df['XLMBTC'])
+    ax3.set_title('BTCUSDT')
+    plt.plot(df['BTCUSDT'])
 
     ax4 = fig.add_subplot(332)
     ax4.set_xlabel('Amostra')
@@ -67,8 +68,7 @@ def printAll(df):
     plt.show()
 
 
-    
-def linregress(df):
+def linregres(df):
     x = np.arange(0, 500)
     col = df.columns[1:len( df.columns)-1]
 
@@ -88,6 +88,7 @@ def normalizeDF(df):
     col = col[1:len( df.columns)]
     for c in col:
         df[col] = normalize(df[col])
+    return df
 
 
 def printScatter(df):
@@ -103,7 +104,7 @@ def corrAll(df):
     plt.yticks(rotation=0)
     plt.show()
     
-def print2(dt1, dt2):
+def print2(df, dt1, dt2):
     fig = plt.figure(figsize=(30, 30))
     ax6 = fig.add_subplot(334)
     ax6.set_xlabel('Amostra')
@@ -114,9 +115,11 @@ def print2(dt1, dt2):
     ax7 = fig.add_subplot(335)
     ax7.set_xlabel('Amostra')
     ax7.set_ylabel('valor')
+    ax7.set_title(dt2)
+    plt.plot(df[dt2])
     plt.show()
     
-def compare(dt1, dt2):
+def compare(df, dt1, dt2):
     plt.plot(df[dt1], label=dt1)
     plt.plot(df[dt2], label=dt2)
     plt.xlabel('Amostra')

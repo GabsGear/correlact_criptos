@@ -2,14 +2,12 @@ from binance.client import Client
 import pandas as pd
 import numpy as np
 
-pairs = ['BTCXLM', 'BTCIOTA', 'BTCADA', 'BTCBNB', 'BTCEOS', 'BTCXRP',
-         'BTCETH', 'BTCLTC', 'BTCETC', 'BTCTRX', 'BTCNEO', 'BTCLTC']
+pairs = ['BTCUSDT', 'XLMBTC','IOTABTC','ADABTC' ,'BNBBTC' ,'EOSBTC' ,  'XRPBTC' ,'ETHBTC', 'LTCBTC', 'ETCBTC','NEOBTC']
 client = Client('', '')
 
 
 def createDataset():
-    df = pd.DataFrame(columns=['BTCXLM', 'BTCIOTA', 'BTCADA', 'BTCBNB', 'BTCEOS', 'BTCXRP',
-                               'BTCETH', 'BTCLTC', 'BTCETC', 'BTCTRX', 'BTCNEO', 'BTCLTC'])
+    df = pd.DataFrame(columns=[ 'BTCUSDT', 'XLMBTC','IOTABTC','ADABTC' ,'BNBBTC' ,'EOSBTC' , 'XRPBTC' ,'ETHBTC', 'LTCBTC', 'ETCBTC','NEOBTC'])
 
     for pair in pairs:
         close = []
@@ -21,3 +19,8 @@ def createDataset():
 
     return df
 
+<<<<<<< HEAD
+=======
+df = createDataset()
+df.to_csv('dataset_1min')
+>>>>>>> 6548af0d9f5e4a0a4847f8bbf9cc49b157fe634c
